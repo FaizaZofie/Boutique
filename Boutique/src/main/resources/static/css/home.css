@@ -1,0 +1,167 @@
+*{
+	margin: 0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+.nave-header{
+	display: flex;
+	justify-content: space-around;
+	min-height: 8vh;
+        background: linear-gradient(to bottom, #000000 1%, #669999 118%);
+}
+a{
+	text-decoration: none;
+	
+}
+li{
+list-style: none;
+}
+.logo{
+	padding-top:20%;
+	color:#F5F5DC;
+	font-size: 27px;
+	margin-top: 10px;
+}
+.search-area{
+	width:400px;
+	hight:90px;
+	background: #fff;
+	border: none;
+	border-radius: 10px;
+	padding-left: 20px;
+	margin-top: 10px;
+	
+}
+.search-btn{
+	width:69px;
+	hight:40px;
+	border-radius: 10px;
+	border: none;
+	color:#fff;
+	background:#bf00ff;
+	margin-top: 10px;
+	
+}
+#welcUser{
+	font-family: "Arial Black", Gadget, sans-seri;
+	color:#ffffff;
+	font-size: 27px;
+	margin-top: 6px;
+}
+#logout{
+	font-size: 24px;
+	
+	 color:#ffffff;
+	height: 40px;
+	margin-top: 6px;
+}
+#logout a{
+	color:white;
+}
+.nav-menu{
+	width: 100%;
+	padding-left: 40%;
+	height: 35px;
+  
+    box-shadow: 10px 14px 50px 2px  #669999;
+}  
+.nav-menu ul{
+	float: left;
+} 
+.nav-menu ul li{
+	width:150px;
+	line-height: 40px;
+	float:left;
+	height: 35px;
+}
+.nav-menu ul li a{
+	display:block;
+	margin-left: 40px;
+	font-size: 22px;
+	
+		
+}
+.nav-menu ul li ul{
+	display:none;	
+}
+.nav-menu ul li ul li a{
+	background-color:#D3D3D3;
+font-size: 15px;
+}
+.nav-menu a:hover{
+	color:#800000;
+	background-color:white;
+}
+    
+.nav-menu ul li:hover{
+	color:#800000;
+} 
+
+
+.nav-menu ul li:hover > ul{
+	display: block;
+	
+	
+	
+}
+
+#slider{
+	height: 30%
+} 
+
+input[type="checkbox"]{
+	display:none
+}
+.nav-menuLeft{
+	
+    background: linear-gradient(to top, #000000 -5%, #669999 68%);
+	width:230px;
+	height:100%;
+	position:absolute;
+}
+.nav-menuLeft li{
+	align-items:center;
+	padding-top:0px;
+	font-size: 20px;
+	border-bottom: 1px solid rgba(100,100,100,0.3)
+}
+.nav-menuLeft a{
+	display: block;
+	padding: 19px 8px;
+	color:#330033;
+	
+	
+}
+.nav-menuLeft a:hover{
+	background-color:white;
+	color:#800000;
+}
+.nav-menuLeft.active{
+	left:0px;
+}
+#LeftMenu{
+	top:81px;
+	position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
