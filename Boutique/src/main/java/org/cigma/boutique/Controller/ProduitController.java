@@ -106,19 +106,7 @@ public class ProduitController {
 			IOUtils.copy(inputStream, response.getOutputStream());
 		}
 	 
-		/*@RequestMapping("/saveProd")
-		String myStudent(@RequestParam("image") MultipartFile file, @RequestParam("nameProd") String nameProd, @RequestParam("descImage") String descImage,@RequestParam("prixVente")  float prixVente,@RequestParam("prixSolde")  float prixSolde,@RequestParam("dateAjoute") Date dateAjoute) {
-			
-			try {
-				Produit produit = new Produit(nameProd, descImage,prixVente ,prixSolde,dateAjoute,file.getBytes());
-				produitServiceImp.saveProduit(produit);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			return "Produit";
-		}*/
+		
 	 
 	 
 	 
