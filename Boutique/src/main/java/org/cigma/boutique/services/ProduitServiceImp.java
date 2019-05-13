@@ -37,7 +37,7 @@ public class ProduitServiceImp implements ProduitService{
 	}
 
 	@Override
-	public void saveOrupdate(Produit produit) {
+	public void saveProduit(Produit produit) {
 		// TODO Auto-generated method stub
 		produitRepository.save(produit);
 	}

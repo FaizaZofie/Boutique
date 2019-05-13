@@ -28,7 +28,7 @@ public class Produit {
 	@Column(name="prixSolde")
 	private float prixSolde;
 	
-	@Column(name="image")
+	@Column(name="image" , columnDefinition ="LONGBLOB")
 	private byte[] image;
 	
 	@Column(name="descImage")
@@ -46,13 +46,14 @@ public class Produit {
 	//private Collection<LigneCmd> lignes;
 	
 	
-	/*Constructors*/
+	/*Constructors this.quantite = quantite;
+		this.categorie = categorie;     , int quantite, Categorie categorie*/
 	public Produit() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Produit(Long idProd, String nameProd, float prixVente, float prixSolde, byte[] image, String descImage,
-			Date dateAjoute, int quantite, Categorie categorie) {
+			Date dateAjoute) {
 		super();
 		this.idProd = idProd;
 		this.nameProd = nameProd;
@@ -61,8 +62,7 @@ public class Produit {
 		this.image = image;
 		this.descImage = descImage;
 		this.dateAjoute = dateAjoute;
-		this.quantite = quantite;
-		this.categorie = categorie;
+		
 	}
 	
 	

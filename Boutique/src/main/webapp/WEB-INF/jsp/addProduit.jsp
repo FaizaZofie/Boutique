@@ -35,14 +35,14 @@
  <label>description de produit</label>
 <s:input type="text" path="descImage" /><br>
  <label>categorie</label>
-<s:input type="text" path="categorie" /><br>
-<!--<label>Date d'ajoute</label>
+<!--<s:input type="text" path="categorie" /><br>
+<label>Date d'ajoute</label>
 <input type="date" name="dateAjoute" value=""> -->
+<input type="submit" value="save">
 
 </s:form>
-<spring:url value="/Produit" var="saveProd"></spring:url>
-<a href="${saveProd}" role="button" >save</a>
-<!--<input type="submit" value="save">-->
+<!--<spring:url value="/Produit" var="saveProd"></spring:url>
+<a href="${saveProd}" role="button" >save</a>-->
 
 
 </body>

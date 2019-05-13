@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PageController {
 	@Autowired
 	private UserService userService;
-	@RequestMapping("/welcome")
-	public String welcome(HttpServletRequest request) {
+	@RequestMapping("/")
+	public String defaultPage(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_HOME");
 		return "welcome";
 	}

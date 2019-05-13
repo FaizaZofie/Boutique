@@ -1,13 +1,20 @@
 					package org.cigma.boutique.Controller;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.cigma.boutique.model.Produit;
 import org.cigma.boutique.repository.ProduitRepository;
 import org.cigma.boutique.services.ProduitService;
+import org.cigma.boutique.services.ProduitServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -19,6 +26,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -28,7 +37,8 @@ public class ProduitController {
 	@Autowired
 	ProduitService produitService;
 	
-	
+	@Autowired
+	ProduitServiceImp produitServiceImp;
 	@RequestMapping("/Produit")
  public String produit() {
 	 return("/Produit");
@@ -41,7 +51,7 @@ public class ProduitController {
 	
 	 
 	
-	 @RequestMapping(value="/list",method=RequestMethod.GET)
+	/* @RequestMapping(value="/list",method=RequestMethod.GET)
      public ModelAndView list() {
 		
 		
@@ -50,6 +60,11 @@ public class ProduitController {
 		 model.addObject("produitList",produitList);
 		 return model;
 		 
+	 }*/
+	 public String produitList(Model model) {
+		 List<Produit> produit =produitService.getAllProduits();
+		 model.addAttribute("produit", produit);
+		 return "Produit";
 	 }
 	 
 	 @RequestMapping(value="/addProduit",method=RequestMethod.GET)
@@ -79,7 +94,7 @@ public class ProduitController {
 	 @RequestMapping(value="/saveProduit",method=RequestMethod.POST)
   
 		 public ModelAndView saveProduit(@ModelAttribute("addProduit")Produit produit) {
-		 produitService.saveOrupdate(produit);
+		 produitService.saveProduit(produit);
 		 
 		 return new ModelAndView("redirect:/Produit");
 		 
@@ -92,9 +107,29 @@ public class ProduitController {
 		 return new ModelAndView("redirect:/produit");
 		 
 	 }
-		 
+
+		@RequestMapping(value ="/getProduitPhoto/{id}")
+		public void getproduitImage(HttpServletResponse response, @PathVariable long idProd) throws Exception {
+			response.setContentType("image/jpeg");
+
+			byte[] bytes = produitServiceImp. getProduitById(idProd).getImage();
+			InputStream inputStream = new ByteArrayInputStream(bytes);
+			IOUtils.copy(inputStream, response.getOutputStream());
+		}
 	 
-	 
+		/*@RequestMapping("/saveProd")
+		String myStudent(@RequestParam("image") MultipartFile file, @RequestParam("nameProd") String nameProd, @RequestParam("descImage") String descImage,@RequestParam("prixVente")  float prixVente,@RequestParam("prixSolde")  float prixSolde,@RequestParam("dateAjoute") Date dateAjoute) {
+			
+			try {
+				Produit produit = new Produit(nameProd, descImage,prixVente ,prixSolde,dateAjoute,file.getBytes());
+				produitServiceImp.saveProduit(produit);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return "Produit";
+		}*/
 	 
 	 
 	 
