@@ -39,10 +39,7 @@ public class ProduitController {
 	
 	@Autowired
 	ProduitServiceImp produitServiceImp;
-	@RequestMapping("/Produit")
- public String produit() {
-	 return("/Produit");
-	 }	 
+
 	 @RequestMapping("/addProduit")
 	 public String addProduit() {
 		 return("/addProduit");
@@ -51,16 +48,8 @@ public class ProduitController {
 	
 	 
 	
-	/* @RequestMapping(value="/list",method=RequestMethod.GET)
-     public ModelAndView list() {
-		
-		
-		 ModelAndView model=new ModelAndView("Produit");
-		 List<Produit> produitList=produitService.getAllProduits();
-		 model.addObject("produitList",produitList);
-		 return model;
-		 
-	 }*/
+	
+	 @RequestMapping("/Produit")
 	 public String produitList(Model model) {
 		 List<Produit> produit =produitService.getAllProduits();
 		 model.addAttribute("produit", produit);

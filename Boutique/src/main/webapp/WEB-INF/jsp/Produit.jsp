@@ -26,7 +26,7 @@
 
 
 <form action="/addProduit">
-<spring:url value="/addProduit" var="addProd"></spring:url>
+<spring:url value="/addProduit" var="addProd"    ></spring:url>
 <a href="${addProd}" role="button" role="button">ajouter un produit</a>
 
  
@@ -36,12 +36,12 @@
     <div>
 	
 	
-	<c:forEach items="${produitList}" var="produit" >
+	<c:forEach items="${produit}" var="produit" >
 	      <tr>
 	     <td>${produit.nameProd}</td> 
 	      <td>${produit.prixVente}</td>
 	      <td>${produit.prixSolde}</td>
-	      <td>${produit.descImag}</td>
+	      <td>${produit.descImage}</td>
 	     <!--  <li>${produit.dateAjoute}</li>  
 	      <td>${produit.categorie}</td>-->
 	      </tr>
