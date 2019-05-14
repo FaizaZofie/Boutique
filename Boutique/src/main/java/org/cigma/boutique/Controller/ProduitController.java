@@ -74,7 +74,7 @@ public class ProduitController {
 		 
 	 }
 	
-	 @RequestMapping(value="/updateProduit/{id}",method=RequestMethod.GET)
+	 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.GET)
   public String updateProduct(@PathVariable Long idProd, Model model) {
 		 model.addAttribute("produit", produitService.getProduitById(idProd));
 		 return ("update-produit");
