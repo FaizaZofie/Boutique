@@ -14,7 +14,7 @@
 
 
 
-<spring:url var="updateProd" value="/update/{idProd}(idProd=${produit.idProd })"></spring:url>
+<spring:url var="updateProd" value="/updateProduit/{idProd}(idProd=${produit.idProd })"></spring:url>
 <s:form modelAttribute="produit" action="${updateProd }" >
 
 <input type="file" name="file">

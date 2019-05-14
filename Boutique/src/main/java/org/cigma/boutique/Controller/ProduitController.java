@@ -81,16 +81,7 @@ public class ProduitController {
 	 }
 	 
 	 
-	 /*public ModelAndView updateProduct(@PathVariable long idProd) {
-		 ModelAndView model=new ModelAndView();
-		Produit produit= new Produit();
-		
-		model.addObject("addProduit",produit);
-		 model.setViewName("addProduit");
-		 
-		 return model;
-		 
-	 }*/
+	 
 	 
 	 @RequestMapping(value="/saveProduit",method=RequestMethod.POST)
   
