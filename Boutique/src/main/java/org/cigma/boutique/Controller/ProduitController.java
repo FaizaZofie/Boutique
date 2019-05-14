@@ -4,6 +4,9 @@
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
 
@@ -29,11 +32,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
 public class ProduitController {
 	
+	private static  String UPLOADED_FOLDER = null;
+
 	@Autowired
 	ProduitService produitService;
 	
@@ -69,7 +75,13 @@ public class ProduitController {
 	 }
 	
 	 @RequestMapping(value="/updateProduit/{id}",method=RequestMethod.GET)
-  public ModelAndView updateProduct(@PathVariable long idProd) {
+  public String updateProduct(@PathVariable Long idProd, Model model) {
+		 model.addAttribute("produit", produitService.getProduitById(idProd));
+		 return ("addProduit");
+	 }
+	 
+	 
+	 /*public ModelAndView updateProduct(@PathVariable long idProd) {
 		 ModelAndView model=new ModelAndView();
 		Produit produit= new Produit();
 		
@@ -78,7 +90,7 @@ public class ProduitController {
 		 
 		 return model;
 		 
-	 }
+	 }*/
 	 
 	 @RequestMapping(value="/saveProduit",method=RequestMethod.POST)
   
@@ -107,8 +119,34 @@ public class ProduitController {
 		}
 	 
 		
+		
+		
+		@PostMapping("/addProduit")
+		public String singleFileUpload(@RequestParam("file") MultipartFile file,RedirectAttributes redirectAttributes) {
+			if (file.isEmpty()) {
+	            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+	            return "redirect:addProduit";
+	        }
+			
+			 try {
+
+	            // Get the file and save it somewhere
+	           byte[] bytes = file.getBytes();
+	            Path path = Paths.get(UPLOADED_FOLDER+ file.getOriginalFilename());
+	            Files.write(path, bytes);
+
+	            redirectAttributes.addFlashAttribute("message",
+	                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+			return ("addProduit");
+		}
 	 
-	 
+		
+		
+		
 	 
 	 
 	 

@@ -37,6 +37,8 @@
 	
 	
 	<c:forEach items="${produit}" var="produit" >
+		<c:if test="${message}"></c:if>
+		<h6>${message}</h6>
 	      <tr>
 	     <td>${produit.nameProd}</td> 
 	      <td>${produit.prixVente}</td>
