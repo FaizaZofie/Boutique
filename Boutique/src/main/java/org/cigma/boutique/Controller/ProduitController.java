@@ -86,7 +86,7 @@ public class ProduitController {
 	 @RequestMapping(value="/saveProduit",method=RequestMethod.POST)
   
 		 public ModelAndView saveProduit(@ModelAttribute("addProduit")Produit produit) {
-		 produitService.saveProduit(produit);
+		 produitService.saveOrupdate(produit);
 		 
 		 return new ModelAndView("redirect:/Produit");
 		 

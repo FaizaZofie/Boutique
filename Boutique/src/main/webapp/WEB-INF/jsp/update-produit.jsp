@@ -21,18 +21,18 @@
 <input type="submit" value="Upload"><br>
 
 <label>Nom de produit</label>
-<input type="text" value="${nameProd}"/><br>
+<input type="text" value="${produit.nameProd}"/><br>
 
 <label>prix de vente</label>
-<input type="text" value="${prixVente}" /><br>
+<input type="text" value="${produit.prixVente}" /><br>
 
 <label>solde</label>
-<input type="text" value="${prixSolde}" /><br>
+<input type="text" value="${produit.prixSolde}" /><br>
 
  <label>description de produit</label>
-<input type="text" value="${descImage}" /><br>
+<input type="text" value="${produit.descImage}" /><br>
  <label>categorie</label>
-<input type="text" value="${categorie}" /><br>
+<input type="text" value="${produit.categorie}" /><br>
 <!--<label>Date d'ajoute</label>
 <input type="date" name="dateAjoute" value=""> -->
 

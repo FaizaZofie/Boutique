@@ -13,7 +13,7 @@ public interface ProduitService {
 
 	void deleteProduit(Long idProd);
 	
-	void saveProduit(Produit produit);
+	void saveOrupdate(Produit produit);
     
    
 }
