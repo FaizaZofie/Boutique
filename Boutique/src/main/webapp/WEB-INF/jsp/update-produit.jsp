@@ -11,11 +11,11 @@
 </head>
 <body>
 
-<spring:url value="/save" var="saveURL"></spring:url>
+
 
 
 <spring:url var="updateProd" value="/update/{idProd}(idProd=${produit.idProd })"></spring:url>
-<s:form modelAttribute="produit" action="${addProd }" >
+<s:form modelAttribute="produit" action="${updateProd }" >
 
 <input type="file" name="file">
 <input type="submit" value="Upload"><br>
