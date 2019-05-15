@@ -74,7 +74,7 @@ public class ProduitController {
 		 
 	 }
 	
-	 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.GET)
+	 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.POST)
   public String updateProduct(@PathVariable Long idProd, Model model) {
 		 model.addAttribute("produit", produitService.getProduitById(idProd));
 		 return ("update-produit");
@@ -85,7 +85,7 @@ public class ProduitController {
 	 
 	 @RequestMapping(value="/saveProduit",method=RequestMethod.POST)
   
-		 public ModelAndView saveProduit(@ModelAttribute("addProduit")Produit produit) {
+		 public ModelAndView saveProduit(@ModelAttribute("Produit")Produit produit) {
 		 produitService.saveOrupdate(produit);
 		 
 		 return new ModelAndView("redirect:/Produit");

@@ -14,8 +14,8 @@
 
 
 
-<spring:url var="updateProd" value="/updateProduit/{idProd}(idProd=${produit.idProd })"></spring:url>
-<s:form modelAttribute="produit" action="${updateProd }" >
+<spring:url var="updateProd" value="/saveProdui/{idProd}(idProd=${produit.idProd })"></spring:url>
+<s:form modelAttribute="produit" action="${updateProd }"  method="post" >
 
 <input type="file" name="file">
 <input type="submit" value="Upload"><br>

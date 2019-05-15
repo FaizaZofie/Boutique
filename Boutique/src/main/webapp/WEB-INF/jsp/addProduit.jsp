@@ -15,7 +15,7 @@
 
 
 <spring:url var="save" value="/saveProduit"/>
-<s:form modelAttribute="addProduit" action="${save}" method="post">
+<s:form modelAttribute="Produit" action="${save}" method="post">
 
 
 
