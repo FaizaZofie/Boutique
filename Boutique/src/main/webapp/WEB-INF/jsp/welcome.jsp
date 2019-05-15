@@ -81,38 +81,38 @@
 
 <nav class="nav-menu">
 <ul >
-<li><a href="#">Acceuil</a></li>
+<li><a href="#">Home</a></li>
 <li><a href="#">Categories</a>
 
 	<ul >
-		<li><a href="#" >Telephones</a></li>
-		<li><a href="#" >Santé et Beauté</a></li>
-		<li><a href="#" >maison et bureau</a></li>
+		<li><a href="#" >Phones</a></li>
+		<li><a href="#" >Health & beauty</a></li>
+		<li><a href="#" >house and office</a></li>
 		<li><a href="#" >mode</a></li>
-		<li><a href="#" >Produits bébé</a></li>
-		<li><a href="#" >Electroniques</a></li>
-		<li><a href="#" >Informatiques</a></li>
-		<li><a href="#" >voitures</a></li>
+		<li><a href="#" >Products baby</a></li>
+		<li><a href="#" >Electronic</a></li>
+		<li><a href="#" >IT</a></li>
+		<li><a href="#" >Car</a></li>
 		<li><a href="#" >Sports</a></li>
-		<li><a href="#" >Autres</a></li>
+		<li><a href="#" >Others</a></li>
 		
 	</ul>
 	
 </li>
-<li><a href="#">Nouveau</a></li>
+<li><a href="#">New</a></li>
 </ul> 
 </nav>
 
 
 <nav class=nav-menuLeft>
 <ul id="LeftMenu">
-<li><a href="/login">Compte</a></li>
-<li><a href="/login">Commande</a></li>
-<li><a href="/login">Produit</a></li>
-<li><a href="/login">panier</a></li>
-<li><a href="/login">Favoris</a></li>
-<li><a href="/login">Contact</a></li>
-<li><a href="/login">Paiement</a></li>
+<li><a href="#">Account</a></li>
+<li><a href="#">Order</a></li>
+<li><a href="/Produit">Product</a></li>
+<li><a href="#">panier</a></li>
+<li><a href="#">Favorites</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Payment</a></li>
 </ul>
 </nav>
 </div>
