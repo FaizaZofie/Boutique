@@ -67,14 +67,14 @@ public class ProduitController {
 		 ModelAndView model=new ModelAndView();
 		Produit produit= new Produit();
 		
-		 model.addObject("addProduit",produit);
+		 model.addObject("Produit",produit);
 		 model.setViewName("addProduit");
 		
 		 return model;
 		 
 	 }
 	
-	 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.POST)
+	 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.GET)
   public String updateProduct(@PathVariable Long idProd, Model model) {
 		 model.addAttribute("produit", produitService.getProduitById(idProd));
 		 return ("update-produit");
@@ -92,7 +92,7 @@ public class ProduitController {
 		 
 	 }
 	 
-	 @RequestMapping(value="/deleteProduit/{id}",method=RequestMethod.POST)
+	 @RequestMapping(value="/deleteProduit/{idProd}",method=RequestMethod.POST)
   public ModelAndView deleteProduct(@PathVariable long idProd) {
 		 produitService.deleteProduit(idProd);
 		 
