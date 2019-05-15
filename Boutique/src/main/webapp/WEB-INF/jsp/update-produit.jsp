@@ -15,25 +15,25 @@
 
 
 <spring:url var="updateProd" value="/saveProduit"></spring:url>
-<s:form modelAttribute="Produit" action="${updateProd }"  method="post" >
+<s:form modelAttribute="produit" action="${updateProd }"  method="post" >
 
 <input type="file" name="file">
 <input type="submit" value="Upload"><br>
 
 <label>Nom de produit</label>
-<input type="text" value="${produit.nameProd}"/><br>
+<s:input type="text" path="nameProd"/><br>
 
 <label>prix de vente</label>
-<input type="text" value="${produit.prixVente}" /><br>
+<s:input type="text" path="prixVente" /><br>
 
 <label>solde</label>
-<input type="text" value="${produit.prixSolde}" /><br>
+<s:input type="text" path="prixSolde" /><br>
 
  <label>description de produit</label>
-<input type="text" value="${produit.descImage}" /><br>
- <label>categorie</label>
-<input type="text" value="${produit.categorie}" /><br>
-<!--<label>Date d'ajoute</label>
+<s:input type="text" path="descImage" /><br>
+<!-- <label>categorie</label>
+<s:input type="text" path="categorie" /><br>
+<label>Date d'ajoute</label>
 <input type="date" name="dateAjoute" value=""> -->
 
 
