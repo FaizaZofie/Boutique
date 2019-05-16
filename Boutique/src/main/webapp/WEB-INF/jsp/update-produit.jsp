@@ -19,6 +19,7 @@
 
 <input type="file" name="file">
 <input type="submit" value="Upload"><br>
+<s:hidden path="idProd"/>
 
 <label>Nom de produit</label>
 <s:input type="text" path="nameProd"/><br>
