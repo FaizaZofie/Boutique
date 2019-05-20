@@ -34,8 +34,8 @@
 
  <label>description de produit</label>
 <s:input type="text" path="descImage" /><br>
- <label>categorie</label>
-<!--<s:input type="text" path="categorie" /><br>
+<!-- <label>categorie</label>
+<s:input type="text" path="categorie" /><br>
 <label>Date d'ajoute</label>
 <input type="date" name="dateAjoute" value=""> -->
 <input type="submit" value="save">

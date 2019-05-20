@@ -12,7 +12,6 @@
 
 </head>
 <body>
-
 <c:choose>
 <c:when test="${mode=='MODE_LOGIN' }">
 	<div class="container text-center">
@@ -47,6 +46,7 @@
 </c:choose>
 
 <script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
