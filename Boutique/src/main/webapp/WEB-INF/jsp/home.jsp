@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<nav class="nave-header">
+<nav class="nave-header" >
       <div >
 		   <a href="/welcome" class="logo">BoutiqueSHOP</a>
 	  </div>	   
@@ -68,8 +68,8 @@
 
 <nav class="nav-menu">
 <ul >
-<li><a href="#">Home</a></li>
-<li><a href="#">Categories</a>
+<li><a href="HomeProduct">Home</a></li>
+<li><a href="Categorie">Categories</a>
 	<ul >
 		<li><a href="#" >Phones</a></li>
 		<li><a href="#" >house and office</a></li>

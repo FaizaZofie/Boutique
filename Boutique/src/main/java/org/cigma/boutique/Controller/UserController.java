@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	@RequestMapping("/welcome")
+	@RequestMapping("/")
 	public String defaultPage(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_HOME");
 		return "welcome";

@@ -45,7 +45,6 @@ public class AuthContreoller {
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
 	    
-	    return "/welcome";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
-	}
+	    return "/welcome";}
 
 }

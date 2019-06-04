@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.cigma.boutique.model.Produit;
+import org.cigma.boutique.repository.ProduitRepository;
 import org.cigma.boutique.services.ProduitService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,11 @@ public class ProduitController {
 
 	@Autowired
 	ProduitService produitService;
+	@Autowired
+	ProduitRepository produitRepository;
 	
-
+//Pages
+	
 	 @RequestMapping("/addProduit")
 	 public String addProduit() {
 		 return("/addProduit");
@@ -52,6 +56,18 @@ public class ProduitController {
 		 List<Produit> produit =produitService.getAllProduits();
 		 model.addAttribute("produit", produit);
 		 return "Produit";
+	 }
+	 
+	 @RequestMapping("/HomeProduct")
+	 public String homeproduct(Model model) {
+		
+		 return ("/home");
+	 }
+	 @RequestMapping("/HomeProducts")
+	 public String homeproducts(Model model) {
+		 List<Produit> produit =(List<Produit>) produitRepository.findAll();
+		 model.addAttribute("produit", produit);
+		 return "welcome";
 	 }
 	 
 	 
