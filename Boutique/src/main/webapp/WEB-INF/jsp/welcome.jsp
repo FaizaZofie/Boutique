@@ -102,7 +102,7 @@
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Orders</a>
+								<a href="#">Orders</a>
 							</li>
 
 							<li>
@@ -110,7 +110,7 @@
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="/contact">Contact</a>
 							</li>
 						</ul>
 					</div>	
@@ -196,7 +196,7 @@
 			
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="#">Home</a>
 					
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -204,7 +204,7 @@
 				</li>
 
 				<li>
-					<a href="/Produit">My Product</a>
+					<a href="/login">My Product</a>
 				</li>
 
 				<li>
@@ -212,13 +212,13 @@
 				</li>
 
 				<li>
-					<a href="/account">My Account</a>
+					<a href="/login">My Account</a>
 				</li>
 
 			
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="/login">My Contact</a>
 				</li>
 			</ul>
 		</div>
@@ -544,7 +544,7 @@
 						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Sports
+									Sport & fitness
 								</span>
 
 								<span class="block1-info stext-102 trans-04">
@@ -1333,8 +1333,7 @@
 		</div>
 	</section>
 
-
-	<!-- Footer -->
+<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
 			<div class="row">
@@ -1646,6 +1645,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   
   
   
+
+
+
+  
+  
+  
+  
   
   
   
@@ -1656,21 +1662,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <c:choose>
 <c:when test="${mode=='MODE_HOME' }">
 
-
-
-
-
-
-
-
-
-
-
 </c:when>
 </c:choose>
 
 
-	
+
+
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
