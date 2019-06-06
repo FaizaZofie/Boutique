@@ -13,15 +13,17 @@
 <body>
 
 
-
+<form action="" enctype="multipart/form-data" method="post">
+<input type="file" name="file" >
+<input type="submit" value="Upload"><br>
+</form>
 <spring:url var="save" value="/saveProduit"/>
 <s:form modelAttribute="Produit" action="${save}" method="post">
 
 
 
 
-<input type="file" name="file">
-<input type="submit" value="Upload"><br>
+
 
 <label>Nom de produit</label>
 <s:input type="text" path="nameProd"/><br>

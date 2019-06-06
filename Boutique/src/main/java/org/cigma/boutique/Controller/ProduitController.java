@@ -115,43 +115,7 @@ public class ProduitController {
 		 
 	 }
 	 //FILE*********************************************************************
-		@RequestMapping(value ="/getProduitPhoto/{id}")
-		public void getproduitImage(HttpServletResponse response, @PathVariable long idProd) throws Exception {
-			response.setContentType("image/jpeg");
-
-			byte[] bytes = produitService. getProduitById(idProd).getImage();
-			InputStream inputStream = new ByteArrayInputStream(bytes);
-			IOUtils.copy(inputStream, response.getOutputStream());
-		}
-	 
-		
-		
-		
-		@PostMapping("/addProduit")
-		public String singleFileUpload(@RequestParam("file") MultipartFile file,RedirectAttributes redirectAttributes) {
-			if (file.isEmpty()) {
-	            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-	            return "redirect:addProduit";
-	        }
-			
-			 try {
-
-	            // Get the file and save it somewhere
-	           byte[] bytes = file.getBytes();
-	            Path path = Paths.get(UPLOADED_FOLDER+ file.getOriginalFilename());
-	            Files.write(path, bytes);
-
-	            redirectAttributes.addFlashAttribute("message",
-	                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-			return ("addProduit");
-		}
-	 
-		
-		
+				
 		
 	 
 	 
