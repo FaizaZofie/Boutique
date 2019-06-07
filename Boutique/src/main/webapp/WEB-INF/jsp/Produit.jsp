@@ -50,7 +50,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 	<div class="w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
       <div class="w3-hover-opacity">
-       <img src="${getImage}">
+       <img src="${getImage">
       </div>
       <div class="w3-container w3-white">
 	     <p>Name Product ${produit.nameProd}</p><br>
