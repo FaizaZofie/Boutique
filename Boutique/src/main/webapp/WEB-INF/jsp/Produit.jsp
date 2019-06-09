@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +11,42 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </style>
 <title>Produit</title>
 </head>
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<body>
 
 <nav class="nave-header">
       <div >
@@ -31,32 +61,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 
 
-<form action="/addProduit">
-<spring:url value="/addProduit" var="addProd"    ></spring:url>
-<a href="${addProd}" role="button" role="button">ajouter un produit</a>
+<a href="/addProduit"> Add Product </a> <br/>
 
- 
-</form>
-	
-	<div class="w3-main" style="margin-left:300px">
- 
-	
-	<div class="w3-row-padding">
-	
-	
-	 <c:forEach items="${produit}" var="produit" >
+	  <c:forEach items="${produit}" var="produit" >
 		<c:if test="${message}"></c:if>
 		<h6>${message}</h6>
 	<div class="w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
       <div class="w3-hover-opacity">
-       <img src="${getImage">
+      
       </div>
-      <div class="w3-container w3-white">
-	     <p>Name Product ${produit.nameProd}</p><br>
-	     <p>	Price:${produit.prixVente} </p><br>
-	      <p>	Sold :${produit.prixSolde }</p><br>
-	      <p>	Description: ${produit.descImage} </p><br>
+    
+							
+      
+      <a href="view"><img width="300" height="300" src="getProduitPhoto/<c:out value='${produit.idProd}'/>"></a>
+      </div>
+      </div>
+      
+     
+	     <p> ${produit.nameProd}</p><br>
+	     <p>Price:${produit.prixVente} </p><br>
+	      <p>Sold :${produit.prixSolde }</p><br>
+	      <p>Description: ${produit.descImage} </p><br>
 	     <!--  <li>${produit.dateAjoute}</li>  
 	      <td>${produit.categorie}</td>-->
 	       
@@ -66,16 +92,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 	      
 	      <spring:url value="/deleteProduit/${produit.idProd }" var="deleteProd"></spring:url>
 	      <a href="${deleteProd}" role="button" >delete</a>
-	       </div>
-    </div>
-    </div>
+	       
+   
+   
+
 	</c:forEach>
-	</div>
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -91,8 +113,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
     </div>
   </div>
-</div>
-	
 
 
 

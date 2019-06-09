@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import 	org.cigma.boutique.services.ProduitServiceImp;
 import org.cigma.boutique.model.Produit;
 import org.cigma.boutique.repository.ProduitRepository;
 import org.cigma.boutique.services.ProduitService;
@@ -37,91 +38,83 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class ProduitController {
 	
-	private static  String UPLOADED_FOLDER = null;
+	
+	
 
-	@Autowired
-	ProduitService produitService;
-	@Autowired
-	ProduitRepository produitRepository;
-	
-//Pages
-	
 	 @RequestMapping("/addProduit")
 	 public String addProduit() {
 		 return("/addProduit");
 
 	 }
-	 @RequestMapping("/Produit")
-	 public String produitList(Model model) {
-		 List<Produit> produit =produitService.getAllProduits();
-		 model.addAttribute("produit", produit);
-		 return "Produit";
-	 }
-	 
-	 @RequestMapping("/HomeProduct")
-	 public String homeproduct(Model model) {
+	 @Autowired
+		ProduitServiceImp produitServiceImp;
 		
-		 return ("/home");
-	 }
-	 @RequestMapping("/HomeProducts")
-	 public String homeproducts(Model model) {
-		 List<Produit> produit =(List<Produit>) produitRepository.findAll();
-		 model.addAttribute("produit", produit);
-		 return "welcome";
-	 }
-	 
-	 
-	 //ADD ************************************************************
-	 @RequestMapping(value="/addProduit",method=RequestMethod.GET)
-  public ModelAndView addProduct() {
-		 ModelAndView model=new ModelAndView();
-		Produit produit= new Produit();
-		
-		 model.addObject("Produit",produit);
-		 model.setViewName("addProduit");
-		
-		 return model;
-		 
-	 }
-	 
-	 @RequestMapping(value="/saveProduit",method=RequestMethod.POST)
-	  
-	 public ModelAndView saveProduit(@ModelAttribute("Produit")Produit produit) {
-	 
-	 produitService.saveOrupdate(produit);
-	 
-	 return new ModelAndView("redirect:/Produit");
-	 
- }
-	 
-	 
-	 
-	//UPDATE********************************************************************
-	 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.GET)
-  public String updateProduct(@PathVariable Long idProd, Model model) {
-		 model.addAttribute("Produit", produitService.getProduitById(idProd));
-		 return ("update-produit");
-	 }
 
-	 
-	 
-	
-	 //DELETE******************************************************************
-	 @RequestMapping(value="/deleteProduit/{idProd}")
-  public ModelAndView deleteProduct(@PathVariable long idProd) {
-		 produitService.deleteProduit(idProd);
-		 
-		 return new ModelAndView("redirect:/Produit");
-		 
-	 }
-	 //FILE*********************************************************************
-				
 		
-	 
-	 
-	 
-	 
-	 
-	 
+		 
+		 
+		 
+		
+	//ListProduct =========================================================================================== 
+		 @RequestMapping("/Produit")
+		 public String produitList(Model model) {
+			 List<Produit> produit =produitServiceImp.allProduits();
+			 model.addAttribute("produit", produit);
+			 return "Produit";
+		 }
+	//save product ==============================================================================================	
+		@RequestMapping("/saveProduit")
+		String myProduct(@RequestParam("image") MultipartFile myfile, @RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage) {
+			
+			try {
+				Produit produit = new Produit(nameProd, prixVente, prixSolde,myfile.getBytes(),descImage);
+				produitServiceImp.saveProduit(produit);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return "Produit";
+		}
+		
+		@RequestMapping("/addStudent")
+		String plusProduct() {
+			return "addProduit";
+		}
+		
+		
+		@RequestMapping(value ="/getProduitPhoto/{id}")
+		public void getProduitPhoto(HttpServletResponse response, @PathVariable("id") int id) throws Exception {
+			response.setContentType("image/jpeg");
+
+			byte[] bytes = produitServiceImp.getProduitById(id).getImage();
+			InputStream inputStream = new ByteArrayInputStream(bytes);
+			IOUtils.copy(inputStream, response.getOutputStream());
+		}
+		
+		
+		 
+	//UPDATE===========================================================================================================
+		    
+			 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.GET)
+		  public String updateProduct(@PathVariable Long idProd, Model model) {
+				 model.addAttribute("Produit", produitServiceImp.getProduitById(idProd));
+				 return ("update-produit");
+			 }
+
+			 
+			 
+			
+	 //DELETE============================================================================================================
+			 @RequestMapping(value="/deleteProduit/{idProd}")
+		  public ModelAndView deleteProduct(@PathVariable long idProd) {
+				 produitServiceImp.deleteProduit(idProd);
+				 
+				 return new ModelAndView("redirect:/Produit");
+				 
+			 }
+		 
+		 
+		    
 	
 }

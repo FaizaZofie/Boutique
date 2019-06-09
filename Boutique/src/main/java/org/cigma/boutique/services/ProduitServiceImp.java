@@ -18,18 +18,22 @@ public class ProduitServiceImp implements ProduitService{
 	@Autowired
 	ProduitRepository produitRepository;
 
+	
+	
+	
+
 	@Override
-	public List<Produit> getAllProduits() {
-		// TODO Auto-generated method stub
+	public List<Produit> allProduits() {
+		
 		return (List<Produit>) produitRepository.findAll();
 	}
 
 	@Override
-	public Produit getProduitById(Long idProd) {
-		// TODO Auto-generated method stub
-		return produitRepository.findById(idProd).get();
+	public Produit getProduitById(long idProd) {
+		return produitRepository.findById(idProd).get() ;
 	}
-
+	
+	
 	@Override
 	public void deleteProduit(Long idProd) {
 		// TODO Auto-generated method stub
@@ -37,12 +41,12 @@ public class ProduitServiceImp implements ProduitService{
 	}
 
 	@Override
-	public void saveOrupdate (Produit produit) {
+	public void saveProduit(Produit produit) {
 		// TODO Auto-generated method stub
 		produitRepository.save(produit);
 	}
 
 	
-	
+
 	
 }

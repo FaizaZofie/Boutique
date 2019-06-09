@@ -13,39 +13,16 @@
 <body>
 
 
-<form action="" enctype="multipart/form-data" method="post">
-<input type="file" name="file" >
-<input type="submit" value="Upload"><br>
-</form>
-<spring:url var="save" value="/saveProduit"/>
-<s:form modelAttribute="Produit" action="${save}" method="post">
-
-
-
-
-
-
-<label>Nom de produit</label>
-<s:input type="text" path="nameProd"/><br>
-
-<label>prix de vente</label>
-<s:input type="text" path="prixVente" /><br>
-
-<label>solde</label>
-<s:input type="text" path="prixSolde" /><br>
-
- <label>description de produit</label>
-<s:input type="text" path="descImage" /><br>
-<!-- <label>categorie</label>
-<s:input type="text" path="categorie" /><br>
-<label>Date d'ajoute</label>
-<input type="date" name="dateAjoute" value=""> -->
-<input type="submit" value="save">
-
-</s:form>
-<!--<spring:url value="/Produit" var="saveProd"></spring:url>
-<a href="${saveProd}" role="button" >save</a>-->
-
-
+<s:form action="saveProduit" method="POST"  enctype="multipart/form-data" >  
+	<p>choose Image</p>	<input type="file" name="image"/><br>
+	<label>Name Product</label>	<input type="text" name="nameProd"/><br>
+	<label>Price</label>	<input type="text" name="prixVente"/><br>
+	<label>Sold</label>	<input type="text" name="prixSolde"/><br>
+	<label>description</label>	<input type="text" name="descImage"/><br>
+	<label>categories</label>	<input type="text" name="nameCategorie"/><br>
+		
+		<input type="submit" value="Save">
+	
+	</s:form>
 </body>
 </html>

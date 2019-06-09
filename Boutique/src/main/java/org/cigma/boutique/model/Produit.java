@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name="Produit")
 public class Produit {
 	@Id	
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name="idProd")
 	private Long idProd;
 	
@@ -58,17 +58,13 @@ public class Produit {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Produit(Long idProd, String nameProd, float prixVente, float prixSolde, byte[] image, String descImage,
-			Date dateAjoute) {
+	public Produit(String nameProd, float prixVente, float prixSolde, byte[] image, String descImage) {
 		super();
-		this.idProd = idProd;
 		this.nameProd = nameProd;
 		this.prixVente = prixVente;
 		this.prixSolde = prixSolde;
 		this.image = image;
 		this.descImage = descImage;
-		this.dateAjoute = dateAjoute;
-		
 	}
 	
 	

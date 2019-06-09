@@ -7,14 +7,11 @@ import org.cigma.boutique.model.Produit;
 
 
 public interface ProduitService {
-	public List<Produit> getAllProduits();
-
-	Produit getProduitById(Long idProd);
-
-	void deleteProduit(Long idProd);
+	public void saveProduit(Produit produit);
+	public List<Produit> allProduits();
+	public Produit getProduitById(long idProd);
+	 void deleteProduit(Long idProd);
+	 
 	
-	void saveOrupdate(Produit produit);
-	
-    
    
 }

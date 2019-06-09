@@ -22,8 +22,8 @@ public class Categorie {
 	@Column(name="nameCategorie")
 	private String nameCategorie;
 	
-	@OneToMany(mappedBy = "categorie")
-	private Collection<Produit> produit;
+	/*@OneToMany(mappedBy = "categorie")
+	private Collection<Produit> produit;*/
 
 	/*Constructors*/
 	
@@ -36,9 +36,9 @@ public class Categorie {
 		super();
 		this.idCategorie = idCategorie;
 		this.nameCategorie = nameCategorie;
-		this.produit = produit;
+		
 	}
-
+	//this.produit = produit;
 	/*Getters & Setters*/
 	public Long getIdCategorie() {
 		return idCategorie;
@@ -56,12 +56,12 @@ public class Categorie {
 		this.nameCategorie = nameCategorie;
 	}
 
-	public Collection<Produit> getProduit() {
+/*	public Collection<Produit> getProduit() {
 		return produit;
 	}
 
 	public void setProduit(Collection<Produit> produit) {
 		this.produit = produit;
-	}
+	}*/
 
 }
