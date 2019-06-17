@@ -9,15 +9,15 @@
 <meta charset="ISO-8859-1">
 <link href="css/produit.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- Bootstrap -->
+<!-- Bootstrap 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- jquerry -->
-<script
-			  src="http://code.jquery.com/jquery-3.4.1.js"
-			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-			  crossorigin="anonymous"></script>
-		
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
 
 <title>Products</title>
@@ -50,21 +50,23 @@
       <div class="card-body">
       <h5 class="card-title">${produit.nameProd}</h5>
       <p class="card-text">Price:${produit.prixVente}</p>
-      <p class="card-text">Sold :${produit.prixSolde }</p>
-      <p class="card-text">Description: ${produit.descImage}</p>
+     <p class="card-text">Sold :${produit.prixSolde } </p>
+      <p class="card-text"> Description: ${produit.descImage}</p>
+       <p class="card-text"> Date: ${produit.dateAjoute}</p>
      </div>
-    
-  </div>
-   </div> 
+    </div>
+    </div>
+    </div>
+ 
 	       
 	     
-	      <spring:url value="/updateProduit/${produit.idProd }"  var="updateProd"></spring:url>
-	      <a href="${updateProd}" role="button"  >Update</a>
+	      <spring:url value="/updateProduit/${produit.idProd }"  var="updateProd" ></spring:url>
+	      <a href="${updateProd}" role="button" >Update</a>
 	      
 	      <spring:url value="/deleteProduit/${produit.idProd }" var="deleteProd"></spring:url>
 	      <a href="${deleteProd}" role="button" >delete</a>
 	       
-   </div>
+   
    
 
 	</c:forEach>

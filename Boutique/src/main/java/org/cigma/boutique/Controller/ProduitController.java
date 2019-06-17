@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -64,10 +64,10 @@ public class ProduitController {
 		 }
 	//save product ==============================================================================================	
 		@RequestMapping("/saveProduit")
-		String myProduct(@RequestParam("image") MultipartFile myfile, @RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage) {
+		String myProduct(@RequestParam("image") MultipartFile myfile, @RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage, @RequestParam("dateAjoute") String dateAjoute) {
 			
 			try {
-				Produit produit = new Produit(nameProd, prixVente, prixSolde,myfile.getBytes(),descImage);
+				Produit produit = new Produit(nameProd, prixVente, prixSolde,myfile.getBytes(),descImage,dateAjoute);
 				produitServiceImp.saveProduit(produit);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -103,7 +103,7 @@ public class ProduitController {
 			 }
 
 			 @RequestMapping("/update")
-				String update( @RequestParam("idProd") long idProd,@RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage) {
+				String update( @RequestParam("idProd") long idProd,@RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage, @RequestParam("dateAjoute") String dateAjoute) {
 				 
 				Produit produit = produitServiceImp.getProduitById(idProd);	
 				 
@@ -111,6 +111,7 @@ public class ProduitController {
 					produit.setPrixVente(prixVente);
 					produit.setPrixSolde(prixSolde);
 					produit.setDescImage(descImage);
+					produit.setDateAjoute(dateAjoute);
 					produitServiceImp.saveProduit(produit);
 					return "Produit";
 				}

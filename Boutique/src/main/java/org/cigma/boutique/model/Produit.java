@@ -38,7 +38,7 @@ public class Produit {
 	private String descImage;
 	
 	@Column(name="dateAjoute")
-	private Date dateAjoute;
+	private String dateAjoute;
 	
 	@Column(name="quantite")
 	private int quantite; 
@@ -58,13 +58,14 @@ public class Produit {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Produit(String nameProd, float prixVente, float prixSolde, byte[] image, String descImage) {
+	public Produit(String nameProd, float prixVente, float prixSolde, byte[] image, String descImage,String dateAjoute) {
 		super();
 		this.nameProd = nameProd;
 		this.prixVente = prixVente;
 		this.prixSolde = prixSolde;
 		this.image = image;
 		this.descImage = descImage;
+		this.dateAjoute=dateAjoute;
 	}
 	
 	
@@ -124,11 +125,11 @@ public class Produit {
 		this.descImage = descImage;
 	}
 
-	public Date getDateAjoute() {
+	public String getDateAjoute() {
 		return dateAjoute;
 	}
 
-	public void setDateAjoute(Date dateAjoute) {
+	public void setDateAjoute(String dateAjoute) {
 		this.dateAjoute = dateAjoute;
 	}
 
