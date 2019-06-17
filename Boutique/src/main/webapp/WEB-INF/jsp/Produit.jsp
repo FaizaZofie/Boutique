@@ -50,8 +50,8 @@
       <div class="card-body">
       <h5 class="card-title">${produit.nameProd}</h5>
       <p class="card-text">Price:${produit.prixVente}</p>
-     <p class="card-text">Sold :${produit.prixSolde } </p>
-      <p class="card-text"> Description: ${produit.descImage}</p>
+     <p class="card-text">Balance :${produit.prixSolde } </p>
+      <p class="card-text"> Description:</p><p> ${produit.descImage}</p>
        <p class="card-text"> Date: ${produit.dateAjoute}</p>
      </div>
     </div>

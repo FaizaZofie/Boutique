@@ -28,7 +28,7 @@
 	<div class="form-group">
 	<label>Price</label>	    <input type="text" name="prixVente" class="form-control"/><br></div>
 	<div class="form-group">
-	<label>Sold</label>	        <input type="text" name="prixSolde" class="form-control"/><br></div>
+	<label>Balance</label>	        <input type="text" name="prixSolde" class="form-control"/><br></div>
 	<div class="form-group">
 	<label>description</label><textarea  rows="7" name="descImage"  id="exampleFormControlTextarea3" class="form-control"></textarea>	<br></div>
 	     
