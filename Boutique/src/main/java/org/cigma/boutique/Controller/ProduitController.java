@@ -102,7 +102,18 @@ public class ProduitController {
 				 return ("updateproduit");
 			 }
 
-			 
+			 @RequestMapping("/update")
+				String update( @RequestParam("idProd") long idProd,@RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage) {
+				 
+				Produit produit = produitServiceImp.getProduitById(idProd);	
+				 produitServiceImp.saveProduit(produit);
+					produit.setNameProd(nameProd);
+					produit.setPrixVente(prixVente);
+					produit.setPrixSolde(prixSolde);
+					produit.setDescImage(descImage);
+					return "Produit";
+				}
+				
 			 
 			
 	 //DELETE============================================================================================================

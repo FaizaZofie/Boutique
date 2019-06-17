@@ -14,8 +14,8 @@
 
 
 
-<spring:url var="updateProd" value="/updateProduit"></spring:url>
-<s:form modelAttribute="Produit" action="${updateProd}"  method="post" >
+<spring:url var="updateProd" value="/update"></spring:url>
+<s:form  action="${updateProd}"  method="post" >
 
 
 <s:hidden path="idProd"/>
