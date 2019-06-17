@@ -99,7 +99,7 @@ public class ProduitController {
 			 @RequestMapping(value="/updateProduit/{idProd}",method=RequestMethod.GET)
 		  public String updateProduct(@PathVariable Long idProd, Model model) {
 				 model.addAttribute("Produit", produitServiceImp.getProduitById(idProd));
-				 return ("update-produit");
+				 return ("updateproduit");
 			 }
 
 			 

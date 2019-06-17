@@ -42,7 +42,8 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif;}
+
 </style>
 <title>Produit</title>
 </head>
@@ -64,27 +65,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <a href="/addProduit"> Add Product </a> <br/>
 
 	  <c:forEach items="${produit}" var="produit" >
-		<c:if test="${message}"></c:if>
-		<h6>${message}</h6>
-	<div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-      <div class="w3-hover-opacity">
-      
-      </div>
+	
+ <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="getProduitPhoto/<c:out value='${produit.idProd}'/>" class="card-img-top" alt="..." >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+      <h5 class="card-title">${produit.nameProd}</h5>
+      <p class="card-text">Price:${produit.prixVente}</p>
+      <p class="card-text">Sold :${produit.prixSolde }</p>
+      <p class="card-text">Description: ${produit.descImage}</p>
+     </div>
     
-							
-      
-      <a href="view"><img width="300" height="300" src="getProduitPhoto/<c:out value='${produit.idProd}'/>"></a>
-      </div>
-      </div>
-      
-     
-	     <p> ${produit.nameProd}</p><br>
-	     <p>Price:${produit.prixVente} </p><br>
-	      <p>Sold :${produit.prixSolde }</p><br>
-	      <p>Description: ${produit.descImage} </p><br>
-	     <!--  <li>${produit.dateAjoute}</li>  
-	      <td>${produit.categorie}</td>-->
+  </div>
+   </div> 
 	       
 	     
 	      <spring:url value="/updateProduit/${produit.idProd }"  var="updateProd"></spring:url>
@@ -93,7 +89,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 	      <spring:url value="/deleteProduit/${produit.idProd }" var="deleteProd"></spring:url>
 	      <a href="${deleteProd}" role="button" >delete</a>
 	       
-   
+   </div>
    
 
 	</c:forEach>

@@ -14,11 +14,10 @@
 
 
 
-<spring:url var="updateProd" value="/saveProduit"></spring:url>
-<s:form modelAttribute="Produit" action="${updateProd }"  method="post" >
+<spring:url var="updateProd" value="/updateProduit"></spring:url>
+<s:form modelAttribute="Produit" action="${updateProd}"  method="post" >
 
-<input type="file" name="file">
-<input type="submit" value="Upload"><br>
+
 <s:hidden path="idProd"/>
 
 <label>Nom de produit</label>
@@ -32,10 +31,10 @@
 
  <label>description de produit</label>
 <s:input type="text" path="descImage" /><br>
-<!-- <label>categorie</label>
+<label>categorie</label>
 <s:input type="text" path="categorie" /><br>
 <label>Date d'ajoute</label>
-<input type="date" name="dateAjoute" value=""> -->
+<input type="date" name="dateAjoute" value=""> 
 
 
 
