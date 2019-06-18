@@ -10,4 +10,10 @@ public class PagesController {
 		 return("/detailProduct");
 
 	 }
+	 
+	 @RequestMapping("/About")
+	 public String about() {
+		 return("/About");
+
+	 }
 }
