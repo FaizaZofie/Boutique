@@ -85,7 +85,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="images/icons/logo1.png" alt="IMG-LOGO">
 					</a>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->
@@ -93,7 +93,7 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">Home</a>
+								<a href="/home">Home</a>
 							
 							</li>
 
@@ -139,7 +139,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.html"><img src="images/icons/logo1.png" alt="IMG-LOGO"></a>
 			</div>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->
@@ -196,7 +196,7 @@
 			
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="/home">Home</a>
 					
 					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>

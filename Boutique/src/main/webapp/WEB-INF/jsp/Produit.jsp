@@ -7,12 +7,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="css/produit.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
@@ -44,68 +42,65 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
- 
-
 <title>Products</title>
 </head>
 <body>
- 
-<nav class="navbar navbar-dark bg-dark">
-      <div >
-		   <h1 style="color:white"> BoutiqueSHOP </h1>
-	  </div>	   
-	  
-	  <div id="search">
-	  		<input type="text" name="text" placeholder="Search here" class="search-area">
-	  		<input type="submit" name="submit" value="search" class="search-btn">
-	  </div>
-</nav>
 
-
-
-<a href="/addProduit"> Add Product </a> <br/>
-
-	  <c:forEach items="${produit}" var="produit" >
-	
- <div class="row isotope-grid">
-<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-<!-- Block2 -->
-<div class="block2">
-	<div class="block2-pic hov-img0">
-    <a href="detailProduct"> <img src="getProduitPhoto/<c:out value='${produit.idProd}'/>" class="card-img-top" alt="..." ></a>
-    <a href="detailProduct" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">details</a>
-	</div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <h5 class="card-title">${produit.nameProd}</h5>
-      <p class="card-text">Price:${produit.prixVente}</p>
-     <p class="card-text">Balance :${produit.prixSolde } </p>
-      <p class="card-text"> Description:</p><p> ${produit.descImage}</p>
-       <p class="card-text"> Date: ${produit.dateAjoute}</p>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="images/icons/logo1.png">
+  </a>
+  <a href="/addProduit" class="btn btn-info" > Add Product </a>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
     
- 
-	       
-	     
+</nav>
+ <br/>
+<div class="container">
+<div class="row-justify-content-center">
+<div class="row isotope-grid">
+
+   <c:forEach items="${produit}" var="produit" >
+   
+   
+    <div class="col-md-4">
+    <div class="block2-pic hov-img0">
+    <div class="card" style="width: 18rem;">
+	  <a href="detailProduct"> <img src="getProduitPhoto/<c:out value='${produit.idProd}'/>"  class="card-img-top"></a>
+      <a href="detailProduct" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">details</a>
+      </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+    <div class="block1-txt-child1 flex-col-l">
+      
+      <h5 class="card-title">${produit.nameProd}</h5>
+      <p  class="card-text">Price:${produit.prixVente}</p>
+      <p  class="card-text">Balance :${produit.prixSolde } </p>
+      <p  class="card-text"> Description:</p><p> ${produit.descImage}</p>
+      <p  class="card-text"> Date: ${produit.dateAjoute}</p>
+    
+
 	      <spring:url value="/updateProduit/${produit.idProd }"  var="updateProd" ></spring:url>
-	      <a href="${updateProd}" role="button" >Update</a>
+	      <a href="${updateProd}" role="button" class="btn btn-secondary"  >Update</a>
 	      
 	      <spring:url value="/deleteProduit/${produit.idProd }" var="deleteProd"></spring:url>
-	      <a href="${deleteProd}" role="button" >delete</a>
-	       
-   
-    </div>      
-   </div>
-   </div>
-   </div> 
-</div>
-
-	</c:forEach>
-
-	
-	
+	      <a href="${deleteProd}" role="button" class="btn btn-danger"  >delete</a>
+	      </div>
+	      </div>
+	</div>
+	 </div>
 	
 	 
+	</c:forEach>
 
+</div>
+</div>	
+	
+	 
+</div>
 <div class="w3-center w3-padding-32">
     <div class="w3-bar">
       <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>

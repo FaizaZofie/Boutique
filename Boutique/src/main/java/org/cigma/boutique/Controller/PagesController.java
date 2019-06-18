@@ -5,6 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PagesController {
+	@RequestMapping("/home")
+	 public String homepage() {
+		 return("/home");
+
+	 }
 	 @RequestMapping("/detailProduct")
 	 public String detailProduit() {
 		 return("/detailProduct");
