@@ -17,9 +17,19 @@
 <title>Add Product</title>
 </head>
 <body >
-
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="images/icons/logo1.png">
+  </a>
+  <p>Add Product</p>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    
+</nav>
 <div class="container" >
-    <div class="row md">
+    <div class="row-md-4">
 <s:form action="saveProduit" method="POST"  enctype="multipart/form-data" class="col-md-6 offset-md-3"> 
 <div class="form-group" style="margin-top: 48px"> 
 	<p>choose Image</p>	<input type="file" name="image" class="form-control"/><br></div>
@@ -37,7 +47,10 @@
     
 	<label>Date </label>        <input type="date" name="dateAjoute"   class="form-control"> 	<br>
 		<input type="submit" value="Save"  class="btn btn-primary topBtn">
-	
+	<div>
+	<br>
+	<br>
+	</div>
 	</s:form>
 	</div>
 	<!--  <label>categories</label>	<input type="text" name="nameCategorie" class="form-control"/><br></div> -->

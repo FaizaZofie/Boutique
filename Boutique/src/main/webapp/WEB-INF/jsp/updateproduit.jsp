@@ -27,7 +27,7 @@
 
 
 <div class="container" >
-    <div class="row md">
+    <div class="row-md-4">
 <spring:url var="updateProd" value="/update"></spring:url>
 <s:form modelAttribute="Produit" action="${updateProd}"  method="post" >
 
@@ -62,9 +62,11 @@
 <input type="date" name="dateAjoute"   class="form-control"> 
 </div>
 
-
-
-<input type="submit" value="update">
+<input type="submit" value="update" class="btn btn-primary">
+<div>
+<br>
+<br>
+</div>
 </s:form>
 </div>
 </div>
