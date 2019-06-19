@@ -1,6 +1,7 @@
 package org.cigma.boutique.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -44,6 +45,12 @@ public class ProduitServiceImp implements ProduitService{
 	public void saveProduit(Produit produit) {
 		// TODO Auto-generated method stub
 		produitRepository.save(produit);
+	}
+
+	@Override
+	public Optional<Produit> listProductsByCategorie(Long idCategorie) {
+		// TODO Auto-generated method stub
+		return produitRepository.findById(idCategorie);
 	}
 
 	

@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -62,6 +63,14 @@ public class ProduitController {
 			 model.addAttribute("produit", produit);
 			 return "Produit";
 		 }
+		 
+		 @RequestMapping("/ProductsByCategorie")
+		 public String produitListByCategorie(Model model,@RequestParam("idCategorie") long idCategorie) {
+			 
+			Optional<Produit> produit =produitServiceImp.listProductsByCategorie(idCategorie);
+			 model.addAttribute("produit", produit);
+			 return "categories";
+		 }
 	//save product ==============================================================================================	
 		@RequestMapping("/saveProduit")
 		String myProduct(@RequestParam("image") MultipartFile myfile, @RequestParam("nameProd") String nameProd, @RequestParam("prixVente") float prixVente,@RequestParam("prixSolde") float prixSolde,@RequestParam("descImage") String descImage, @RequestParam("dateAjoute") String dateAjoute) {
@@ -77,10 +86,6 @@ public class ProduitController {
 			return "Produit";
 		}
 		
-		@RequestMapping("/addStudent")
-		String plusProduct() {
-			return "addProduit";
-		}
 		
 		
 		@RequestMapping(value ="/getProduitPhoto/{id}")
