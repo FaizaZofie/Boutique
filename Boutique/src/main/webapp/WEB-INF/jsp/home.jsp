@@ -106,7 +106,7 @@
 							</li>
 
 							<li>
-								<a href="/account">My Account</a>
+								<a href="/Account">My Account</a>
 							</li>
 
 							<li>

@@ -10,6 +10,13 @@ public class PagesController {
 		 return("/home");
 
 	 }
+	@RequestMapping("/Account")
+	 public String myAccount() {
+		 return("/Account");
+
+	 }
+	 
+	
 	 @RequestMapping("/detailProduct")
 	 public String detailProduit() {
 		 return("/detailProduct");
