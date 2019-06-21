@@ -1,6 +1,5 @@
 package org.cigma.boutique.services;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +32,26 @@ public class UserService implements UserRepository{
 	public User findByUsernameAndPassword(String username, String password) {
 		return userRepository.findByUsernameAndPassword(username, password);}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public List<User> findAll() {
 		// TODO Auto-generated method stub

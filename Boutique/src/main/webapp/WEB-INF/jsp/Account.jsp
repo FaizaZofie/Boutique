@@ -13,7 +13,7 @@
 <link href="css/register.css" rel="stylesheet">
 </head>
 <body>
-
+<!-- 
 <div class="container text-center">
 <form class="form-horizontal" method="POST" action="#">
 
@@ -21,7 +21,7 @@
 	 <h3>Update your Account</h3> <hr>
 <!--  		
  <div class="form-group" style="margin-top: 48px"> 
-			<s:hidden path="id"/></div>-->
+			<s:hidden path="id"/></div>
 			
 			
 	 <div class="form-group">
@@ -80,7 +80,7 @@
 	</div>
 	</div>
 	
-	 <!-- pays -->
+	 <!-- pays 
 	<div class="form-group">
 		 <label class="control-label col-md-3">pays</label>
 	<div class="col-md-7">
@@ -88,7 +88,7 @@
 	</div>
 	</div>
 	
-	 <!-- ville -->
+	 <!-- ville 
 	<div class="form-group">
 		 <label class="control-label col-md-3">ville</label>
 	<div class="col-md-7">
@@ -96,7 +96,7 @@
 	</div>
 	</div>
 	
-	<!-- BUTTON Update -->
+	<!-- BUTTON Update 
 	<div class="form-group ">
 		<input type="submit" class="btn btn-primary" value="Update" />
 	</div>
@@ -104,7 +104,7 @@
  
 </div>
 
-
+ -->
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
