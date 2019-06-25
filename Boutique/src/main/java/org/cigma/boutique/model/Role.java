@@ -18,14 +18,8 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;
-	
-	 @Column(nullable = false, unique = true)
-	  
+	@Column(name = "nameRole")
 private String nameRole;
-
-
-	 @ManyToMany
-	 private List<User> user;
 
 
 	 
@@ -47,12 +41,7 @@ public void setNameRole(String nameRole) {
 	this.nameRole = nameRole;
 }
 
-public List<User> getUser() {
- 	return user;
- }
- public void setUser(List<User> user) {
-		this.user = user;
-	}
+
 
 
 }

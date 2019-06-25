@@ -1,6 +1,7 @@
 package org.cigma.boutique.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="User")
@@ -30,7 +36,8 @@ private Long id;
 
 @Column(name="lastname")
  private String lastname;
-
+@Email(message="please provide a valid email")
+@NotEmpty(message="please provide an email")
 @Column(name="email")
 private String email;
 
@@ -46,21 +53,22 @@ private String ville;
 @Column(name="CIN")
 private String cin;
 
+@Length(min = 5, message = "*Your password must have at least 5 characters")
+@NotEmpty(message = "*Please provide your password")
 @Column(name="password")
 private String password;
 
+@Column(name = "active")
+private int active;
 
 @Transient
 private String confirmPassword;
 
-@ManyToMany(cascade=CascadeType.MERGE)
-@JoinTable(
-		name="user_role",
-		joinColumns={ @JoinColumn (name="USER_ID" , referencedColumnName="ID")},
-				       inverseJoinColumns= {@JoinColumn(name="ROLE_ID" , referencedColumnName="ID")})
+@ManyToMany(cascade=CascadeType.ALL)
+
+@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 		
-		
-private List<Role> role;
+private Set<Role> roles;
 
 
 
@@ -70,19 +78,32 @@ private List<Role> role;
 
 
 
-public List<Role> getRole() {
-	return role;
-}
 
-
-public void setRole(List<Role> role) {
-	this.role = role;
-}
 
 
 /*Getters & Setters=================================================================================*/
 public Long getId() {
 	return id;
+}
+
+
+public int getActive() {
+	return active;
+}
+
+
+public void setActive(int active) {
+	this.active = active;
+}
+
+
+public Set<Role> getRoles() {
+	return roles;
+}
+
+
+public void setRoles(Set<Role> roles) {
+	this.roles = roles;
 }
 
 
