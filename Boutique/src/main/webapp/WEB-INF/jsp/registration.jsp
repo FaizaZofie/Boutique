@@ -12,12 +12,11 @@
 <link href="css/register.css" rel="stylesheet">
 </head>
 <body>
-<c:choose>
-<c:when test="${mode=='MODE_REGISTER' }">
+
 <div class="container text-center">
 	 <h3>New Registration</h3>
 		 <hr>
-  <form class="form-horizontal" method="POST" action="save-user">
+  <form class="form-horizontal" method="POST" action="/registration">
 			<input type="hidden" name="id" value="${user.id }" />
 			
 			
@@ -100,8 +99,7 @@
   </form>
  
 </div>
-</c:when>
-</c:choose>
+
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

@@ -1,18 +1,22 @@
 package org.cigma.boutique.services;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.cigma.boutique.model.Role;
 import org.cigma.boutique.model.User;
+import org.cigma.boutique.repository.RoleRepository;
 import org.cigma.boutique.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,17 +24,32 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserRepository{
 	
 	@Autowired
-	private final UserRepository userRepository;
-	
-	public UserService(UserRepository userRepository) {
-		this.userRepository=userRepository;
-	}
-	
-	public  void saveUser(User user ) {
-		userRepository.save(user);
-	}
-	public User findByUsernameAndPassword(String username, String password) {
-		return userRepository.findByUsernameAndPassword(username, password);}
+	private final UserRepository userRepository;	
+    private RoleRepository roleRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+   
+    public UserService(UserRepository userRepository,
+                       RoleRepository roleRepository,
+                       BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+    @Override
+	public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public void saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setActive(1);
+        Role userRole = roleRepository.findByNameRole("ADMIN");
+        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        userRepository.save(user);
+}
 
 	
 	

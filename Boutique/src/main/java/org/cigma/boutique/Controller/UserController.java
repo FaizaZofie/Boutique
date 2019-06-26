@@ -28,12 +28,12 @@ public class UserController {
 		return "welcome";
 	}
 	
-	@PostMapping("/save-user")
+	/*@PostMapping("/save-user")
 	public String registerUser(@ModelAttribute User user,BindingResult bindingResult,HttpServletRequest request) {
 		userService.saveUser(user);
 		request.setAttribute("mode","MODE_HOME");
 		return("welcome");
-    }
+    }*/
 	
 	
 	
