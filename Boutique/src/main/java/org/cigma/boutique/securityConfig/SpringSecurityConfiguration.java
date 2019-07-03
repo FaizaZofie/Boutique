@@ -25,8 +25,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-  
-    
 	protected void configure(final HttpSecurity http) throws Exception{
 		http
 		
@@ -34,10 +32,12 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .antMatchers("/","/detailProduct","/About").permitAll()
         .antMatchers("/login").permitAll()
         .antMatchers("/registration").permitAll()
-        .antMatchers("/Produit","/addProduit","home","/updateproduit").hasAuthority("ADMIN").anyRequest()
+        .antMatchers("/Produit","/addProduit","/home","/updateproduit").access("hasRole('ADMIN')").anyRequest()
        
-        .authenticated().and().csrf().disable().formLogin()
-        .loginPage("/login").failureUrl("/login?error=true")
+        .authenticated().and().csrf().disable()
+        .formLogin()
+        .loginPage("/login")
+        .failureUrl("/login?error=true")
         .defaultSuccessUrl("/home")
         .usernameParameter("email")
         .passwordParameter("password")
@@ -51,9 +51,13 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 auth.
          jdbcAuthentication()
          .usersByUsernameQuery("select email, password, active from user where email=?")
-         .authoritiesByUsernameQuery("select u.email, r.role from user u inner join user_role ur on(u.user_id=ur.user_id) inner join role r on(ur.role_id=r.role_id) where u.email=?")
-         .dataSource(dataSource)
-         .passwordEncoder(bCryptPasswordEncoder);
+        .authoritiesByUsernameQuery("select username,role_id from user_roles where username=?")
+        		
+        	/*select u.email, r.role from user u inner join user_role ur on(u.id=ur.user_id) inner join role r on(ur.role_id=r.id) where u.email=?
+*/
+         
+         .dataSource(dataSource);
+        // .passwordEncoder(bCryptPasswordEncoder);
 	}
 	@Override
     public void configure(WebSecurity web) throws Exception {

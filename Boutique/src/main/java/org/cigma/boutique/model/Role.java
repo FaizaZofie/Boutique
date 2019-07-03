@@ -17,9 +17,10 @@ import javax.persistence.Table;
 public class Role {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-private Long id;
+	 @Column(name = "role_id")
+	private Long id;
 	@Column(name = "nameRole")
-private String nameRole;
+	private String nameRole;
 
 
 	 

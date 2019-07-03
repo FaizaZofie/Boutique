@@ -31,20 +31,20 @@ public class UserService implements UserRepository{
     @Autowired
    
     public UserService(UserRepository userRepository,
-                       RoleRepository roleRepository,
-                       BCryptPasswordEncoder bCryptPasswordEncoder) {
+                       RoleRepository roleRepository
+                       ) {//BCryptPasswordEncoder bCryptPasswordEncoder
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+       // this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
-	public User findByEmail(String email) {
-        return userRepository.findByEmail(email);
+	public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     public void saveUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());//bCryptPasswordEncoder.encode(
         user.setActive(1);
         Role userRole = roleRepository.findByNameRole("ADMIN");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));

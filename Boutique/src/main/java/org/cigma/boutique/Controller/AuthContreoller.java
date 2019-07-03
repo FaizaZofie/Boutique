@@ -27,7 +27,7 @@ public class AuthContreoller {
 
 	
 
-	@RequestMapping(value={"/login"}, method = RequestMethod.GET)
+	@RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
@@ -36,7 +36,8 @@ public class AuthContreoller {
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
-        User user = new User();
+      
+        User user =new User();
         modelAndView.addObject("user", user);
         modelAndView.setViewName("/registration");
         return modelAndView;
@@ -44,7 +45,7 @@ public class AuthContreoller {
 	 @RequestMapping(value = "/registration", method = RequestMethod.POST)
 	    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 	        ModelAndView modelAndView = new ModelAndView();
-	        User userExists = userService.findByEmail(user.getEmail());
+	        User userExists = userService.findByUsername(user.getUsername());
 	        if (userExists != null) {
 	            bindingResult
 	                    .rejectValue("email", "error.user",
@@ -66,7 +67,7 @@ public class AuthContreoller {
 	    public ModelAndView home(){
 	        ModelAndView modelAndView = new ModelAndView();
 	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        User user = userService.findByEmail(auth.getName());
+	        User user = userService.findByUsername(auth.getName());
 	        modelAndView.addObject("userName", "Welcome " + user.getUsername() + " " + user.getLastname() + " (" + user.getEmail() + ")");
 	        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
 	        modelAndView.setViewName("/home");
@@ -76,7 +77,7 @@ public class AuthContreoller {
 	
 	
 	
-	/*@RequestMapping("/login")
+/*	@RequestMapping("/login")
 	public String Login(HttpServletRequest request) { 
 		request.setAttribute("mode", "MODE_LOGIN");
 		return ("login");
@@ -84,7 +85,7 @@ public class AuthContreoller {
 	@RequestMapping ("/login-user")
 	public String loginUser(@ModelAttribute User user,HttpServletRequest request) {
 		if(userService.findByUsernameAndPassword(user.getUsername(), user.getPassword())!=null) {
-			return "home";
+			return "/home";
 		}
 		else {
 			request.setAttribute("error", "Invalid Username or Password");
@@ -97,7 +98,7 @@ public class AuthContreoller {
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
 	    
-	    return "/welcome";}
+	    return "/welcome";}*/
 
-}*/
+
 }

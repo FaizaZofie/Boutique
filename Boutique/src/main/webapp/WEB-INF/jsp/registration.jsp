@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Register page</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/register.css" rel="stylesheet">
@@ -69,12 +69,6 @@
 	
 	
 	
-	<div class="form-group">
-		 <label class="control-label col-md-3">Confirm Password</label>
-	<div class="col-md-7">
-		 <input type="password" class="form-control" name="password" value="${user.confirmPassword }" />
-	</div>
-	</div>
 	
 	 <!-- pays -->
 	<div class="form-group">

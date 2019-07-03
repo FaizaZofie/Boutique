@@ -20,13 +20,13 @@ public class RestController {
 	
 
 	
-	
+	/*
 	@GetMapping("/save-user")
-	public String saveUser(@RequestParam String username, @RequestParam String lastname, @RequestParam String email, @RequestParam String address, @RequestParam String pays,@RequestParam String ville,@RequestParam String password,@RequestParam String confirmPassword,@RequestParam String cin) {
-		User user = new User(username, lastname, email, address,pays,ville,password,confirmPassword,cin);
+	public String saveUser(@RequestParam String username, @RequestParam String lastname, @RequestParam String email, @RequestParam String address, @RequestParam String pays,@RequestParam String ville,@RequestParam String password,@RequestParam String cin) {
+		User user = new User(username, lastname, email, address,pays,ville,password,cin);
 		userService.saveUser(user);
 		return "User Saved";
-	}
+	}*/
 	
   
 	 

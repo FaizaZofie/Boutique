@@ -12,38 +12,43 @@
 
 </head>
 <body>
-<c:choose>
-<c:when test="${mode=='MODE_LOGIN' }">
+
 	<div class="container text-center">
 		 <h3>User Login</h3>
 		 <hr>
-	<form class="form-horizontal" method="POST" action="/login-user">
-		  <c:if test="${not empty error }">
-		  <div class= "alert alert-danger">
-			   <c:out value="${error }"></c:out>
-		  </div>
-		  </c:if>
+	<form class="form-horizontal" method="POST" action="/login">
+		  
 					
 		  <div class="form-group">
 			   <label class="control-label col-md-3">Username</label>
 			   <div class="col-md-7">
-					<input type="text" class="form-control" name="username"	value="${user.username }" />
+					<input type="text" class="form-control" name="username"	value="${user.username }" placeholder="Username" />
 			   </div>
 	      </div>
 		  <div class="form-group">
 			   <label class="control-label col-md-3">Password</label>
 			   <div class="col-md-7">
-			   <input type="password" class="form-control" name="password" value="${user.password }" />
+			   <input type="password" class="form-control" name="password" value="${user.password }" placeholder="password"/>
 			   </div>
 	     </div>
+	    
+	     
 		 <div class="form-group ">
 			  <input type="submit" class="btn btn-primary" value="Login" />
 		 </div>
 		 
 		 </form>
+		 <c:if test="${not empty param.login_error}">
+        <div class="error">
+            <br />
+            <spring:message code="login.error" />
+            <br />
+            <spring:message code="login.errorReason" />:
+            <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+        </div>
+    </c:if>
   </div>
-</c:when>
-</c:choose>
+
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
