@@ -46,7 +46,7 @@ public class UserService implements UserRepository{
     public void saveUser(User user) {
         user.setPassword(user.getPassword());//bCryptPasswordEncoder.encode(
         user.setActive(1);
-        Role userRole = roleRepository.findByNameRole("ADMIN");
+        Role userRole = roleRepository.findById(1);
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
 }

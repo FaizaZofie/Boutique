@@ -24,6 +24,15 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private DataSource dataSource;
+    
+    protected void configure(final AuthenticationManagerBuilder auth)throws Exception{
+		 auth.
+        jdbcAuthentication()
+        .usersByUsernameQuery("select email, password, active from user where email=?")
+       .authoritiesByUsernameQuery("select username,role_id from user_role where username=?")
+       .dataSource(dataSource);
+       // .passwordEncoder(bCryptPasswordEncoder);
+	}
 
 	protected void configure(final HttpSecurity http) throws Exception{
 		http
@@ -32,13 +41,13 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .antMatchers("/","/detailProduct","/About").permitAll()
         .antMatchers("/login").permitAll()
         .antMatchers("/registration").permitAll()
-        .antMatchers("/Produit","/addProduit","/home","/updateproduit").access("hasRole('ADMIN')").anyRequest()
+        .antMatchers("/Produit","/addProduit","/home","/updateproduit").access("hasRole('1')").anyRequest()
        
         .authenticated().and().csrf().disable()
         .formLogin()
         .loginPage("/login")
-        .failureUrl("/login?error=true")
         .defaultSuccessUrl("/home")
+        .failureUrl("/login?error=true")
         .usernameParameter("email")
         .passwordParameter("password")
         .and().logout()
@@ -47,18 +56,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .accessDeniedPage("/access-denied");
 }
 	
-	protected void configure(final AuthenticationManagerBuilder auth)throws Exception{
-		 auth.
-         jdbcAuthentication()
-         .usersByUsernameQuery("select email, password, active from user where email=?")
-        .authoritiesByUsernameQuery("select username,role_id from user_roles where username=?")
-        		
-        	/*select u.email, r.role from user u inner join user_role ur on(u.id=ur.user_id) inner join role r on(ur.role_id=r.id) where u.email=?
-*/
-         
-         .dataSource(dataSource);
-        // .passwordEncoder(bCryptPasswordEncoder);
-	}
+	
 	@Override
     public void configure(WebSecurity web) throws Exception {
         web
