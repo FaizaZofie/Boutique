@@ -42,18 +42,14 @@ public class Produit {
 	
 	@Column(name="quantite")
 	private int quantite; 
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="idCategorie")
-	private Categorie categorie;
+	private Categorie categorie;*/
 	
 	
 	
 	
-	//private Collection<LigneCmd> lignes;
 	
-	
-	/*Constructors this.quantite = quantite;
-		this.categorie = categorie;     , int quantite, Categorie categorie*/
 	public Produit() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -77,13 +73,7 @@ public class Produit {
 
 	
 	
-	public Categorie getCategorie() {
-		return categorie;
-	}
-
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
-	}
+	
 
 	public String getNameProd() {
 		return nameProd;

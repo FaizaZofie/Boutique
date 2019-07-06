@@ -30,7 +30,7 @@ public class AuthContreoller {
 	@RequestMapping(value="/login", method = RequestMethod.GET)
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("/login");
         return modelAndView;
 }
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
@@ -68,8 +68,7 @@ public class AuthContreoller {
 	        ModelAndView modelAndView = new ModelAndView();
 	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	        User user = userService.findByUsername(auth.getName());
-	        modelAndView.addObject("userName", "Welcome " + user.getUsername() + " " + user.getLastname() + " (" + user.getEmail() + ")");
-	        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+	        modelAndView.addObject("userName", "Welcome " + user.getUsername() );
 	        modelAndView.setViewName("/home");
 	        return modelAndView;
 	}

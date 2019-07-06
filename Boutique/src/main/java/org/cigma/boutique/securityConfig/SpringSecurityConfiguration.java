@@ -24,7 +24,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private DataSource dataSource;
-    
+   
     protected void configure(final AuthenticationManagerBuilder auth)throws Exception{
 		 auth.
         jdbcAuthentication()
@@ -33,7 +33,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
        .dataSource(dataSource);
        // .passwordEncoder(bCryptPasswordEncoder);
 	}
-
+    
 	protected void configure(final HttpSecurity http) throws Exception{
 		http
 		
@@ -41,19 +41,20 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .antMatchers("/","/detailProduct","/About").permitAll()
         .antMatchers("/login").permitAll()
         .antMatchers("/registration").permitAll()
-        .antMatchers("/Produit","/addProduit","/home","/updateproduit").access("hasRole('1')").anyRequest()
+        .antMatchers("/Produit","/addProduit","/home","/updateproduit").access("hasRole('ADMIN')").anyRequest()
        
         .authenticated().and().csrf().disable()
         .formLogin()
         .loginPage("/login")
         .defaultSuccessUrl("/home")
         .failureUrl("/login?error=true")
-        .usernameParameter("email")
+        .usernameParameter("username")
         .passwordParameter("password")
         .and().logout()
         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
         .logoutSuccessUrl("/").and().exceptionHandling()
         .accessDeniedPage("/access-denied");
+		
 }
 	
 	
