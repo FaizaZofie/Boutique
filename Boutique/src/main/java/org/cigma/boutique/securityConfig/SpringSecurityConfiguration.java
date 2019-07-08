@@ -29,7 +29,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 auth.
         jdbcAuthentication()
         .usersByUsernameQuery("select email, password, active from user where email=?")
-       .authoritiesByUsernameQuery("select username,role_id from user_role where username=?")
+       .authoritiesByUsernameQuery("SELECT user.username,role.id FROM user INNER JOIN role ON user.role_id=role.id")
        .dataSource(dataSource);
        // .passwordEncoder(bCryptPasswordEncoder);
 	}

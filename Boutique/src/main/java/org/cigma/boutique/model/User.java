@@ -63,10 +63,9 @@ private String password;
 private int active;
 
 
-@ManyToMany(cascade = CascadeType.ALL)
-@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "username"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-
-private Set<Role> roles;
+@ManyToOne
+@JoinColumn(name="role_id")
+private Role role;
 
 
 
@@ -95,13 +94,16 @@ public void setActive(int active) {
 }
 
 
-public Set<Role> getRoles() {
-	return roles;
+
+
+
+public Role getRole() {
+	return role;
 }
 
 
-public void setRoles(Set<Role> roles) {
-	this.roles = roles;
+public void setRole(Role role) {
+	this.role = role;
 }
 
 
@@ -211,8 +213,7 @@ public User() {
 public User(String username, String lastname,
 		@Email(message = "please provide a valid email") @NotEmpty(message = "please provide an email") String email,
 		String address, String pays, String ville, String cin,
-		@Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password,
-		Set<Role> roles) {
+		@Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password,Role role) {
 	super();
 	this.username = username;
 	this.lastname = lastname;
@@ -222,7 +223,8 @@ public User(String username, String lastname,
 	this.ville = ville;
 	this.cin = cin;
 	this.password = password;
-	this.roles = roles;
+	this.role=role;
+	
 }
 
 

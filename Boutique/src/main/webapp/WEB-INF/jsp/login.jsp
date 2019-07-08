@@ -16,7 +16,7 @@
 	<div class="container text-center">
 		 <h3>User Login</h3>
 		 <hr>
-	<form class="form-horizontal"  action="/login">
+	<form class="form-horizontal" method="post" action="/login">
 		  
 					
 		  <div class="form-group">

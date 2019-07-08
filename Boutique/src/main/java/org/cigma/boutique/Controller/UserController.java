@@ -22,11 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	@RequestMapping("/")
-	public String defaultPage(HttpServletRequest request) {
-		request.setAttribute("mode", "MODE_HOME");
-		return "welcome";
-	}
+	
 	
 	/*@PostMapping("/save-user")
 	public String registerUser(@ModelAttribute User user,BindingResult bindingResult,HttpServletRequest request) {
