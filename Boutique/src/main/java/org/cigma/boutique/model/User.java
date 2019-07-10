@@ -29,7 +29,6 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	
 	private Long id;
 
 @Column(name="Username")
@@ -37,8 +36,8 @@ public class User {
 
 @Column(name="lastname")
  private String lastname;
-@Email(message="please provide a valid email")
-@NotEmpty(message="please provide an email")
+
+
 @Column(name="email")
 private String email;
 
@@ -54,18 +53,48 @@ private String ville;
 @Column(name="CIN")
 private String cin;
 
-@Length(min = 5, message = "*Your password must have at least 5 characters")
-@NotEmpty(message = "*Please provide your password")
+
 @Column(name="password")
 private String password;
 
 @Column(name = "active")
 private int active;
 
+public int getActive() {
+	return active;
+}
 
-@ManyToOne
-@JoinColumn(name="role_id")
-private Role role;
+
+
+
+
+
+public void setActive(int active) {
+	this.active = active;
+}
+
+
+
+
+
+
+public Set<Role> getRoles() {
+	return roles;
+}
+
+
+
+
+
+
+public void setRoles(Set<Role> roles) {
+	this.roles = roles;
+}
+
+
+@ManyToMany(cascade = CascadeType.ALL)
+@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+private Set<Role> roles;
 
 
 
@@ -84,27 +113,8 @@ public Long getId() {
 }
 
 
-public int getActive() {
-	return active;
-}
 
 
-public void setActive(int active) {
-	this.active = active;
-}
-
-
-
-
-
-public Role getRole() {
-	return role;
-}
-
-
-public void setRole(Role role) {
-	this.role = role;
-}
 
 
 public void setId(Long id) {
@@ -207,13 +217,8 @@ public User() {
 }
 
 
-
-
-
-public User(String username, String lastname,
-		@Email(message = "please provide a valid email") @NotEmpty(message = "please provide an email") String email,
-		String address, String pays, String ville, String cin,
-		@Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password,Role role) {
+public User(String username, String lastname, String email, String address, String pays, String ville, String cin,
+		String password) {
 	super();
 	this.username = username;
 	this.lastname = lastname;
@@ -223,12 +228,12 @@ public User(String username, String lastname,
 	this.ville = ville;
 	this.cin = cin;
 	this.password = password;
-	this.role=role;
-	
 }
 
 
 //#########################################################################################################
+
+
 
 /*ToString*/
 @Override
@@ -236,5 +241,8 @@ public String toString() {
 	return "User [id=" + id + ", username=" + username + ", lastname=" + lastname + ", email=" + email + ", address="
 			+ address + ", pays=" + pays + ", ville=" + ville + ", cin=" + cin + ", password=" + password + "]";
 }
+
+
+
 }
 

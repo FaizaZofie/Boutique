@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +19,9 @@
 <div class="container text-center">
 	 <h3>New Registration</h3>
 		 <hr>
-  <form class="form-horizontal" method="POST" action="/registration">
+<s:url var="registration" value="/registration" />
+<sf:form modelAttribute="user" action="${registration}">
+  
 			<input type="hidden" name="id" value="${user.id }" />
 			
 			
@@ -66,10 +71,7 @@
 		 <input type="password" class="form-control" name="password" value="${user.password }" />
 	</div>
 	</div>
-	
-	
-	
-	
+
 	 <!-- pays -->
 	<div class="form-group">
 		 <label class="control-label col-md-3">pays</label>
@@ -90,7 +92,7 @@
 	<div class="form-group ">
 		<input type="submit" class="btn btn-primary" value="Register" />
 	</div>
-  </form>
+  </sf:form>
  
 </div>
 

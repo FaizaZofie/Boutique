@@ -1,20 +1,22 @@
 package org.cigma.boutique.securityConfig;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter  {
 
 	public SpringSecurityConfiguration() {
 		super();
@@ -28,8 +30,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(final AuthenticationManagerBuilder auth)throws Exception{
 		 auth.
         jdbcAuthentication()
-        .usersByUsernameQuery("select email, password, active from user where email=?")
-       .authoritiesByUsernameQuery("SELECT user.username,role.id FROM user INNER JOIN role ON user.role_id=role.id")
+        .usersByUsernameQuery("select username, password, active from user where username=?")
+       .authoritiesByUsernameQuery("select user.username, role.role_id from user  inner join user_role on user.id=user_role.user_id inner join role  on user_role.role_id=role.role_id where user.username=?")
        .dataSource(dataSource);
        // .passwordEncoder(bCryptPasswordEncoder);
 	}
@@ -58,11 +60,12 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 }
 	
 	
-	@Override
-    public void configure(WebSecurity web) throws Exception {
-        web
+	 @Override
+	    public void configure(WebSecurity web) throws Exception {
+		 web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**","/fonts/**","/vendor/**");
 }
+	 
 }
 

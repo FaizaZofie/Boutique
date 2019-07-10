@@ -22,7 +22,7 @@
 		  <div class="form-group">
 			   <label class="control-label col-md-3">Username</label>
 			   <div class="col-md-7">
-					<input type="text" class="form-control" name="username"	value="${user.username }" placeholder="Username" />
+					<input type="text" class="form-control" name="username"	value="${user.username }" placeholder="username" />
 			   </div>
 	      </div>
 		  <div class="form-group">

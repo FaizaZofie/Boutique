@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,9 +43,10 @@ public class Produit {
 	
 	@Column(name="quantite")
 	private int quantite; 
-	/*@ManyToOne
-	@JoinColumn(name="idCategorie")
-	private Categorie categorie;*/
+	
+	 @ManyToOne
+	    @JoinColumn(name = "categorie_id")
+	private Categorie categorie;
 	
 	
 	
@@ -69,16 +71,18 @@ public class Produit {
 	/*--Getters & Setters***********************************************************************/
 
 	
-
-
-	
-	
 	
 
 	public String getNameProd() {
 		return nameProd;
 	}
 
+	public Categorie getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
 	public void setNameProd(String nameProd) {
 		this.nameProd = nameProd;
 	}

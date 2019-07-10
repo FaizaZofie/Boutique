@@ -41,12 +41,10 @@
 	<label>Balance</label>	        <input type="text" name="prixSolde" class="form-control"/><br></div>
 	<div class="form-group">
 	<label>description</label><textarea  rows="7" name="descImage"  id="exampleFormControlTextarea3" class="form-control"></textarea>	<br></div>
-	     
-	
-	
-    
+	  
 	<label>Date </label>        <input type="date" name="dateAjoute"   class="form-control"> 	<br>
 		<input type="submit" value="Save"  class="btn btn-primary topBtn">
+		
 	<div>
 	<br>
 	<br>
