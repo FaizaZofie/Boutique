@@ -32,18 +32,18 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter  {
         jdbcAuthentication()
         .usersByUsernameQuery("select username, password, active from user where username=?")
        .authoritiesByUsernameQuery("select user.username, role.role_id from user  inner join user_role on user.id=user_role.user_id inner join role  on user_role.role_id=role.role_id where user.username=?")
-       .dataSource(dataSource);
-       // .passwordEncoder(bCryptPasswordEncoder);
+       .dataSource(dataSource)
+       .passwordEncoder(bCryptPasswordEncoder);
 	}
     
 	protected void configure(final HttpSecurity http) throws Exception{
 		http
 		
 		.authorizeRequests()
-        .antMatchers("/","/detailProduct","/About").permitAll()
+        .antMatchers("/","/detailProduct","/About","/addProduit","/updateproduit").permitAll()
         .antMatchers("/login").permitAll()
         .antMatchers("/registration").permitAll()
-        .antMatchers("/Produit","/addProduit","/home","/updateproduit").access("hasRole('ADMIN')").anyRequest()
+        .antMatchers("\"/Produit\"","\"/home\"").hasAnyRole("ADMIN").anyRequest()//.access("hasRole('ADMIN')") "\"/Produit\""
        
         .authenticated().and().csrf().disable()
         .formLogin()

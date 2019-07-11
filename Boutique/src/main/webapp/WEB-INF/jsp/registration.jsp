@@ -19,12 +19,20 @@
 <div class="container text-center">
 	 <h3>New Registration</h3>
 		 <hr>
+		 
+		 
+		 <s:url var="login" value="/login" />
+			<sf:form modelAttribute="user" action="${login}" method="get">
+				<button class="btn btn-info " type="Submit">Go To login Page</button>
+ 			</sf:form>
+ 
+ 
+ 
 <s:url var="registration" value="/registration" />
-<sf:form modelAttribute="user" action="${registration}">
+<sf:form modelAttribute="user" action="${registration}"  class="form-horizontal">
   
 			<input type="hidden" name="id" value="${user.id }" />
-			
-			
+				
 	 <div class="form-group">
 		  <label class="control-label col-md-3">Username</label>
 	      <div class="col-md-7">
@@ -59,7 +67,7 @@
 	
 	<div class="form-group">
 		 <label class="control-label col-md-3">address </label>
-	<div class="col-md-3">
+	<div class="col-md-7">
 		 <input type="text" class="form-control" name="address"value="${user.address }" />
 	</div>
     </div>
